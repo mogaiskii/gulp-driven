@@ -2,10 +2,10 @@
 
 const fs = require('fs');
 const browserify = require('browserify');
+const babelify = require('babelify');
 const gulp = require('gulp');
 const watch = require('gulp-watch');
 const prefixer = require('gulp-autoprefixer');
-const uglify = require('gulp-uglify');
 const rename = require('gulp-rename');
 const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
@@ -62,6 +62,9 @@ gulp.task('html:build', function() {
 
 gulp.task('js:build', function() {
   return browserify(pathConfig.src.js)
+    .transform(babelify.configure({
+      presets: ['es2015'],
+    }))
     .bundle()
     .pipe(source(pathConfig.src.js))
     .pipe(buffer())

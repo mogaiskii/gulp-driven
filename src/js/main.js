@@ -1,5 +1,6 @@
 'use strict';
-const app = require('./partials/app');
+// const app = require('./partials/app');
+import app from './partials/app'
 
 app();
 
