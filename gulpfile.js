@@ -11,6 +11,7 @@ const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
 const rigger = require('gulp-rigger');
 const cssmin = require('gulp-minify-css');
+const uglify = require('gulp-uglify');
 const inject = require('gulp-inject');
 const imagemin = require('gulp-imagemin');
 const pngquant = require('imagemin-pngquant');
@@ -69,6 +70,7 @@ gulp.task('js:build', function() {
     .pipe(source(pathConfig.src.js))
     .pipe(buffer())
     .pipe(sourcemaps.init())
+    .pipe(uglify())
     .pipe(sourcemaps.write())
     .pipe(rename('main.js'))
     .pipe(gulp.dest(pathConfig.build.js))
