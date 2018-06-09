@@ -124,10 +124,10 @@ gulp.task('watch', function() {
 });
 
 gulp.task('build', [
-  'html:build',
   'js:build',
   'style:build',
   'image:build',
+  'html:build',
 ]);
 
 
