@@ -28,18 +28,21 @@ let pathConfig = {
     js: 'build/js/',
     style: 'build/css/',
     img: 'build/img',
+    public: 'build/public',
   },
   src: {
     html: 'src/*.html',
     js: 'src/js/main.js',
     style: 'src/css/main.scss',
     img: 'src/img/**/*.*',
+    public: 'public/**/*.*',
   },
   watch: {
     html: 'src/**/*.html',
     js: 'src/js/**/*.js',
     style: 'src/css/**/*.scss',
     img: 'src/img/**/*.*',
+    public: 'public/**/*.*',
   },
   clean: './build',
 };
@@ -100,6 +103,12 @@ gulp.task('image:build', function() {
     .pipe(reload({stream: true}));
 });
 
+gulp.task('public:build', function() {
+  return gulp.src(pathConfig.src.public)
+    .pipe(gulp.dest(pathConfig.build.public))
+    .pipe(reload({stream: true}));
+});
+
 gulp.task('clean', function(cb) {
   rimraf(pathConfig.clean, () => {
     fs.mkdir(pathConfig.clean, () => {
@@ -121,12 +130,16 @@ gulp.task('watch', function() {
   watch([pathConfig.watch.img], function(event, cb) {
     gulp.start('img:build');
   });
+  watch([pathConfig.watch.public], function(event, cb) {
+    gulp.start('public:build');
+  });
 });
 
 gulp.task('build', [
   'js:build',
   'style:build',
   'image:build',
+  'public:build',
   'html:build',
 ]);
 
