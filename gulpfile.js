@@ -122,7 +122,7 @@ gulp.task('watch', function() {
     gulp.start('html:build');
   });
   watch([pathConfig.watch.style], function(event, cb) {
-    gulp.start('style:build');
+    setTimeout(gulp.start('style:build'), 500);
   });
   watch([pathConfig.watch.js], function(event, cb) {
     gulp.start('js:build');
