@@ -44,3 +44,7 @@ All configuration is on ``.gulpfile``.
 output folder
 * src 
 source code folder
+
+
+## ToDo
+[] don't fail on fs errors
