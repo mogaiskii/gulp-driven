@@ -3,4 +3,36 @@
 .operator{
   padding: 2em;
   align-self: stretch;
+
+  .events {
+
+    .events-header {
+      display: block;
+      position: relative;
+
+      h2{
+        text-align: center;
+      }
+
+      .events-filter{
+        position: absolute;
+        right: 0;
+        bottom: 0;
+      }
+
+    }
+    .events-list{
+      display: flex;
+      flex-wrap: wrap;
+      .event{
+        width: 20%;
+        margin: 2%;
+        min-width: 250px;
+      }
+    }
+
+  }
 }
+
+@import 'events-filter.scss';
+@import 'event-card.scss';

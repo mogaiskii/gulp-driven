@@ -1,0 +1,66 @@
+$height: 1.75em;
+.events-filter{
+  border: 2px solid black;
+  border-radius: 5px;
+  position: relative;
+  width: 5em;
+  height: $height;
+  background: #F2F2F2;
+
+  .current{
+    width: 70%;
+    height: 100%;
+    line-height: $height;
+    padding-left: 7%;
+  }
+
+  .drop-open{
+    position: absolute;
+    right: 0;
+    top:0;
+    height: $height;
+    line-height: $height;
+    text-align: center;
+    width: 30%;
+    background: #E0E0E0;
+
+    cursor: pointer;
+    &:hover{
+      background: darken(#E0E0E0, 20%);
+    }
+  }
+
+  .drop-content{
+    box-sizing: border-box;
+    position: absolute;
+    list-style: none;
+    left: 0;
+    top: calc(#{$height} + 2px);
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background: #E0E0E0;
+    border: 1.5px solid black;
+    border-top: none;
+    border-radius: 3px;
+
+
+    transition: max-height .3s ease;
+    max-height: 200em;
+
+    &.hidden{
+      max-height: 0em;
+      overflow: hidden;
+    }
+
+    .drop-item{
+      cursor: pointer;
+      padding: 2px 2px 3px 7px;
+      transition: background .1s ease;
+
+      &:hover{
+        background: lighten(#E0E0E0, 7%);
+      }
+    }
+  }
+}

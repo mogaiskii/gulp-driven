@@ -1,0 +1,70 @@
+.event{
+  border: 3px solid black;
+  position: relative;
+
+  .event-info{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+    padding: 15px;
+    padding-top: 2em;
+    background: rgba(#C4C4C4, 0.85);
+
+    opacity: 0;
+    height: 0;
+
+    transition: opacity .3s ease;
+  }
+  .event-header{
+    position: relative;
+    cursor: pointer;
+    .event-name{
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      line-height: 2em;
+      top: 0; 
+      left: 0;
+      z-index: 2;
+      margin: 0;
+      background:   rgba(#C4C4C4, 0.7);
+      transition: background .4s ease;
+    }
+    .image-photo{
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+  .event-body{
+    padding: 15px;
+  }
+  .event-footer{
+    display: flex;
+    opacity: 0.99;
+    position: relative;
+    z-index: 3;
+    .item{
+      width: 50%;
+      text-align: center;
+      line-height: 2.5em;
+    }
+    .buy{
+      border-radius: 5px 0px 0px 0px;
+      background:#F2D479;
+      cursor: pointer;
+    }
+  }
+
+  &.active {
+    .event-info{
+      opacity: 1;
+      height: auto;
+    }
+    .event-header .event-name{
+      background: none;
+    }
+  }
+}
